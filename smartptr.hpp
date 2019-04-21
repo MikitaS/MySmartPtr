@@ -4,17 +4,20 @@ template <typename Type>
 class UniPtr
 {
 public:
-	UniPtr();//done
-	UniPtr(Type & object);//done
-	UniPtr(Type * ptr);//done
-	~UniPtr();//done
+	UniPtr();
+	UniPtr(Type & object);
+	UniPtr(Type * ptr);
+	~UniPtr();
 	
-	bool is_null() const;//done
-	Type operator *();//done
+	bool is_null() const;
+	Type operator *();
 	
-	operator Type* ();//done
-	Type* operator ->();//done
-	UniPtr & operator = (Type * ptr);//done
+	operator Type* ();
+	Type* operator ->();
+	UniPtr & operator = (Type * ptr);
+	
+	void kill();
+	void move(UniPtr<Type> & other);
 	
 	UniPtr(const UniPtr<Type> & other) = delete;
 	UniPtr & operator = (const UniPtr<Type> & other) = delete;

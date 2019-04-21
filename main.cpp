@@ -10,9 +10,13 @@ bool TestUniPtr();
 bool TestUniPtr()
 {
 	UniPtr<int> intptr;
+	intptr.kill();
 	
 	string str = "hello world";
-	UniPtr<string> strptr(str);
+	UniPtr<string> strptr(str), str2ptr(new string("hello Uniqual pointer"));
+	
+	if(*str2ptr != "hello Uniqual pointer")
+		return false;
 	
 	if(*strptr != str)
 		return false;
@@ -21,6 +25,14 @@ bool TestUniPtr()
 		return false;
 		
 	if(strptr->length() != str.length())
+		return false;
+		
+	strptr.move(str2ptr);
+	
+	if( *strptr != "hello Uniqual pointer")
+		return false;
+	
+	if( *str2ptr != str)
 		return false;
 	
 	return true;

@@ -54,3 +54,19 @@ Type * UniPtr<Type>::operator ->()
 {
 	return pointer_;
 }
+
+template <typename Type>
+void UniPtr<Type>::kill()
+{
+	delete pointer_;
+	pointer_ = 0;
+}
+
+template <typename Type>
+void UniPtr<Type>::move(UniPtr<Type> & other)
+{
+	Type * cptr = this->pointer_;
+	
+	this->pointer_ = other.pointer_;
+	other.pointer_ = cptr;
+}
