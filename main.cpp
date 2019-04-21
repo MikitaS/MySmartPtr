@@ -14,6 +14,14 @@ bool TestUniPtr()
 	string str = "hello world";
 	UniPtr<string> strptr(str);
 	
+	if(*strptr != str)
+		return false;
+		
+	if(*(string*)strptr != str)
+		return false;
+		
+	if(strptr->length() != str.length())
+		return false;
 	
 	return true;
 }
