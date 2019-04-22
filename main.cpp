@@ -41,6 +41,20 @@ bool TestUniPtr()//done, code was covered
 
 bool TestSharedPtr()//code needs to be covered
 {
+	SharedPtr<int> ptr1;
+	SharedPtr<string> strptr(new string("hello shptr"));
+	
+	string str = *strptr;
+	SharedPtr<string> str2ptr(str);
+	SharedPtr<string> str3ptr(str2ptr);
+	
+	if(*strptr != *str2ptr)
+		return false;
+	
+	if(*strptr != *str3ptr)
+		return false;
+	
+	
 	return true;
 }
 

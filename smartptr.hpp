@@ -39,11 +39,11 @@ template <typename Type>
 class SharedPtr
 {
 public:
-	SharedPtr();
-	SharedPtr(SharedPtr<Type> & other);
-	SharedPtr(Type * ptr);
-	SharedPtr(Type & ptr);
-	~SharedPtr();
+	SharedPtr();//done, tested
+	SharedPtr(SharedPtr<Type> & other);//done
+	SharedPtr(Type * ptr);//done, tested
+	SharedPtr(Type & other);//done, tested
+	~SharedPtr();//done, tested
 	
 	bool is_null() const;
 	int counter() const;
@@ -52,7 +52,7 @@ public:
 	
 	SharedPtr & operator =(SharedPtr & other);
 	
-	Type operator *();
+	Type operator *(); //done, tested
 	Type* operator ->();
 	operator Type* ();
 	
