@@ -53,3 +53,15 @@ Type SharedPtr<Type>::operator *()
 {
 	return *(ptrstruct_ -> ptr_);
 }
+
+template <typename Type>
+Type* SharedPtr<Type>::operator ->()
+{
+	return ptrstruct_ -> ptr_;
+}
+
+template <typename Type>
+SharedPtr<Type>::operator Type*()
+{
+	return ptrstruct_ -> ptr_;
+}

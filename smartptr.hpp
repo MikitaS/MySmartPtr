@@ -53,8 +53,8 @@ public:
 	SharedPtr & operator =(SharedPtr & other);
 	
 	Type operator *(); //done, tested
-	Type* operator ->();
-	operator Type* ();
+	Type* operator ->();//done, tested
+	operator Type* ();//done, tested
 	
 private:
 	ShrPointerStruct<Type> * ptrstruct_;

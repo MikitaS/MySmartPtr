@@ -54,7 +54,12 @@ bool TestSharedPtr()//code needs to be covered
 	if(*strptr != *str3ptr)
 		return false;
 	
+	if(strptr -> length() != str.length())
+		return false;
 	
+	if(*(string*)strptr != *str3ptr)
+		return false;
+		
 	return true;
 }
 
