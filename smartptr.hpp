@@ -45,12 +45,12 @@ public:
 	SharedPtr(Type & other);//done, tested
 	~SharedPtr();//done, tested
 	
-	bool is_null() const;
-	int counter() const;
-	void swap();
-	void reset();
+	bool is_null() const;//done, tested
+	int counter() const;//done,tested
+	void reset();//done, tested
 	
-	SharedPtr & operator =(SharedPtr & other);
+	SharedPtr & operator =(SharedPtr & other);//done, tested
+	
 	
 	Type operator *(); //done, tested
 	Type* operator ->();//done, tested

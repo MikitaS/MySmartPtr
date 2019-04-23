@@ -41,7 +41,11 @@ bool TestUniPtr()//done, code was covered
 
 bool TestSharedPtr()//code needs to be covered
 {
-	SharedPtr<int> ptr1;
+	SharedPtr<string> ptr1;
+	
+	if(!ptr1.is_null())
+		return false;
+	
 	SharedPtr<string> strptr(new string("hello shptr"));
 	
 	string str = *strptr;
@@ -60,6 +64,20 @@ bool TestSharedPtr()//code needs to be covered
 	if(*(string*)strptr != *str3ptr)
 		return false;
 		
+	if(str2ptr.counter() != 2)
+		return false;
+
+	ptr1 = strptr;
+	
+	if(*ptr1 != *str3ptr)
+		return false;
+	
+	strptr.reset();
+	if(!strptr.is_null())
+		return false;
+
+	ptr1 = str2ptr;
+	
 	return true;
 }
 
